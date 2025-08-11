@@ -11,22 +11,9 @@ const Layout = ({ children }) => {
   };
 
   return (
-    <div className="dashboard-layout">
-      {/* Sidebar */}
-      <aside className="sidebar">
-        <h2 className="sidebar-title">Dashboard</h2>
-        <nav className="sidebar-nav">
-          <button className="nav-item active" onClick={() => navigate('/dashboard')}>Home</button>
-          <button className="nav-item" onClick={() => navigate('/Feed')}>Support Wall</button>
-          <button className="nav-item" onClick={() => navigate('/journal')}>Journal</button>
-          <button className="nav-item" onClick={() => navigate('/DailySchedule')}>My Routines</button>
-          <button className="nav-item" onClick={() => navigate('/uplift')}>Uplifter</button>
-        </nav>
-        <button className="logout-btn" onClick={handleLogout}>🔴 Logout</button>
-      </aside>
-
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-white">
       {/* Main Page Content */}
-      <main className="dashboard-page">
+      <main className="w-full">
         {children}
       </main>
     </div>
