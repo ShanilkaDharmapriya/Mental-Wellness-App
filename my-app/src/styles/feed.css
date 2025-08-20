@@ -2,70 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 🌿 Page Background */
+/* Page Background */
 .wall-page {
-  @apply min-h-screen bg-gradient-to-tr from-gray-200 via-green-50 to-white p-6 md:p-10;
+  @apply min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-white p-6 md:p-10;
 }
 
-/* 💬 Post Form Container */
+/* Post Form Container */
 .wall-form {
-  @apply max-w-3xl mx-auto bg-white rounded-3xl border border-gray-200 shadow-2xl p-8 md:p-10 mb-14 transition-all;
+  @apply max-w-3xl mx-auto bg-white/80 backdrop-blur-lg rounded-3xl border border-gray-200 shadow-md shadow-gray-200 p-8 md:p-10 mb-14 transition-all duration-300 hover:shadow-lg;
 }
 
-/* 📝 Form Heading */
+/* Form Heading */
 .wall-heading {
-  @apply text-3xl font-bold text-green-800 text-center mb-8 tracking-wide;
+  @apply text-3xl font-bold text-gray-800 text-center mb-8 tracking-wide;
 }
 
-/* ✍️ Post Textarea */
+/* Post Textarea */
 .wall-post-form textarea {
-  @apply w-full min-h-[100px] p-5 text-base rounded-2xl bg-white border border-gray-300 text-gray-800 placeholder-gray-500 resize-none focus:outline-none focus:ring-2 focus:ring-green-300 transition;
+  @apply w-full min-h-[100px] p-5 text-base rounded-2xl bg-white/60 border border-gray-200 text-gray-700 placeholder-gray-500 backdrop-blur-md resize-none focus:outline-none focus:ring-2 focus:ring-green-300 transition-all duration-300;
 }
 
-/* ✅ Post Button */
+/* Post Button */
 .wall-post-form button {
-  @apply bg-green-600 hover:bg-green-700 text-white font-semibold px-7 py-2.5 rounded-full shadow-md transition ml-auto block mt-4;
+  @apply bg-green-400 hover:bg-green-500 text-white font-semibold px-7 py-2.5 rounded-xl shadow-md shadow-gray-200 transition-all duration-300 ml-auto block mt-4 hover:shadow-lg hover:scale-105;
 }
 
-/* 🧱 Feed Section */
+/* Feed Section */
 .wall-feed {
   @apply max-w-4xl mx-auto flex flex-col gap-8;
 }
 
 .wall-subheading {
-  @apply text-2xl font-semibold text-gray-700 text-center mb-4;
+  @apply text-2xl font-semibold text-gray-800 text-center mb-6;
 }
 
-/* 🧊 Post Card – solid background, clear separation */
+/* Post Card */
 .wall-card {
-  @apply bg-white rounded-3xl shadow-2xl border border-gray-200 p-6 transition-all hover:shadow-green-200 hover:scale-[1.01];
+  @apply bg-white/80 backdrop-blur-md rounded-2xl shadow-md shadow-gray-200 border border-gray-200 p-6 transition-all duration-300 hover:shadow-lg hover:scale-[1.01];
 }
 
-/* 👤 Post Header */
+/* Post Header */
 .wall-header {
-  @apply flex justify-between items-center mb-2;
+  @apply flex justify-between items-center mb-3;
 }
 
 .wall-author {
-  @apply text-sm font-semibold text-green-700;
+  @apply text-sm font-semibold text-gray-700;
 }
 
 .wall-time {
   @apply text-xs text-gray-500;
 }
 
-/* 💬 Message Body */
+/* Message Body */
 .wall-message {
-  @apply text-gray-800 text-base whitespace-pre-wrap leading-relaxed mb-4;
+  @apply text-gray-700 text-base whitespace-pre-wrap leading-relaxed mb-4;
 }
 
 .wall-divider {
   @apply border-t border-gray-200 my-4;
 }
 
-/* 💬 Comment Section – now with solid gray background */
+/* Comment Section */
 .comment-section {
-  @apply bg-gray-50 border border-gray-300 rounded-2xl p-5 space-y-4;
+  @apply bg-white/60 backdrop-blur-md border border-gray-200 rounded-2xl p-5 space-y-4;
 }
 
 .comment-title {
@@ -73,18 +73,17 @@
 }
 
 .comment-item {
-  @apply text-sm text-gray-800 pl-3;
+  @apply text-sm text-gray-700 bg-white/40 backdrop-blur-sm rounded-xl p-3 border border-gray-200;
 }
 
-/* 🧠 Comment Input */
 .comment-input {
-  @apply flex gap-3 items-start mt-2;
+  @apply flex gap-2 mt-4;
 }
 
-.comment-input textarea {
-  @apply flex-1 px-4 py-2 text-sm rounded-xl bg-white text-gray-700 border border-gray-300 resize-none min-h-[38px] max-h-[200px] overflow-hidden focus:outline-none focus:ring-2 focus:ring-green-300 transition;
+.comment-input input {
+  @apply flex-1 p-2 rounded-xl bg-white/60 border border-gray-200 text-gray-700 placeholder-gray-500 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-green-300 transition-all duration-300;
 }
 
 .comment-input button {
-  @apply bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-xl text-sm shadow-md transition whitespace-nowrap;
+  @apply bg-green-400 hover:bg-green-500 text-white px-4 py-2 rounded-xl shadow-md shadow-gray-200 transition-all duration-300 hover:shadow-lg hover:scale-105;
 }

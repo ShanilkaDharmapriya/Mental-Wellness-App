@@ -4,112 +4,41 @@
 
 /* Main layout */
 .page-container {
-  @apply min-h-screen bg-gradient-to-br from-green-50 to-blue-50 p-4;
-}
-
-.entry-section {
-  @apply bg-gray-100 rounded-2xl shadow-xl p-6 md:p-10 border border-gray-200 max-w-3xl mx-auto mb-10;
-}
-
-.entry-heading {
-  @apply text-3xl font-semibold text-center text-green-600 mb-6;
-}
-
-/* Toggle buttons */
-.entry-toggle {
-  @apply flex justify-center gap-4 mb-6;
-}
-
-.entry-toggle-button {
-  @apply px-5 py-2 rounded-full text-sm transition bg-white text-gray-600 border border-gray-300;
-}
-
-.entry-toggle-button.active {
-  @apply bg-green-500 text-white shadow;
-}
-
-/* Form */
-.entry-form textarea {
-  @apply w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-300 resize-none transition;
-}
-
-.entry-submit-button {
-  @apply mt-4 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full shadow transition block mx-auto;
-}
-
-/* Entry display */
-.entry-past-section {
-  @apply max-w-5xl mx-auto;
-}
-
-.entry-subheading {
-  @apply text-xl font-semibold text-gray-700 mb-4 text-center;
-}
-
-.entry-empty {
-  @apply text-center text-gray-500;
-}
-
-.entry-cards-container {
-  @apply flex overflow-x-auto space-x-4 pb-2;
-}
-
-.entry-card {
-  @apply min-w-[250px] max-w-[250px] h-[250px] bg-gray-100 rounded-2xl shadow-md border border-gray-200 p-4 flex flex-col justify-between;
-}
-
-.entry-date {
-  @apply text-sm text-gray-400 mb-2;
-}
-
-.entry-text {
-  @apply text-gray-700 text-sm leading-snug whitespace-pre-wrap overflow-hidden;
-}
-
-.entry-type-label {
-  @apply text-xs mt-3 bg-green-100 text-green-700 px-3 py-1 rounded-full self-start capitalize;
-}
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Main layout */
-.page-container {
-  @apply min-h-screen p-6 bg-gradient-to-br from-gray-50 via-green-50 to-white;
+  @apply min-h-screen p-6 bg-gradient-to-br from-gray-50 via-blue-50 to-white;
 }
 
 /* Entry Form Section */
 .entry-section {
-  @apply bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-200 max-w-3xl mx-auto mb-12;
+  @apply bg-white/80 backdrop-blur-lg rounded-3xl shadow-md shadow-gray-200 p-8 md:p-12 border border-gray-200 max-w-3xl mx-auto mb-12 transition-all duration-300 hover:shadow-lg;
 }
 
 /* Heading */
 .entry-heading {
-  @apply text-4xl font-bold text-center text-green-700 tracking-wide mb-8;
+  @apply text-4xl font-bold text-center text-gray-800 tracking-wide mb-8;
 }
 
 /* Toggle Buttons Container */
 .entry-toggle {
-  @apply flex justify-center gap-4 mb-6;
+  @apply flex justify-center gap-4 mb-8;
 }
 
 /* Toggle Buttons */
 .entry-toggle-button {
-  @apply px-6 py-2 rounded-full text-sm font-medium transition-all bg-white/60 text-gray-700 border border-white/30 shadow backdrop-blur-md hover:bg-white/80;
+  @apply px-6 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 bg-white/60 text-gray-700 border border-gray-200 shadow-md backdrop-blur-md hover:bg-white/80 hover:shadow-lg;
 }
 
 .entry-toggle-button.active {
-  @apply bg-green-600 text-white shadow-lg;
+  @apply bg-green-400 text-white shadow-md shadow-gray-200;
 }
 
 /* Textarea Form */
 .entry-form textarea {
-  @apply  bg-gray-300/50 p-5 border border-white/30 rounded-2xl text-gray-900 placeholder-gray-500 backdrop-blur-lg focus:outline-none focus:ring-2 focus:ring-green-300 resize-none transition;
+  @apply w-full p-5 rounded-2xl bg-white/60 border border-gray-200 text-gray-700 placeholder-gray-500 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-green-300 resize-none transition-all duration-300;
 }
 
 /* Submit Button */
 .entry-submit-button {
-  @apply mt-6 bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition-all block mx-auto;
+  @apply mt-6 bg-green-400 hover:bg-green-500 text-white font-semibold px-8 py-3 rounded-xl shadow-md shadow-gray-200 transition-all duration-300 block mx-auto hover:shadow-lg hover:scale-105;
 }
 
 /* Entry Display Section */
@@ -119,12 +48,12 @@
 
 /* Subheading */
 .entry-subheading {
-  @apply text-2xl font-semibold text-gray-700 mb-6 text-center;
+  @apply text-2xl font-semibold text-gray-800 mb-6 text-center;
 }
 
 /* Empty Message */
 .entry-empty {
-  @apply text-center text-gray-400 italic;
+  @apply text-center text-gray-500 italic;
 }
 
 /* Card Scroll Container */
@@ -134,7 +63,7 @@
 
 /* Entry Cards */
 .entry-card {
-  @apply min-w-[260px] max-w-[260px] h-[260px] bg-white border border-gray-200 rounded-3xl shadow-xl p-5 flex flex-col justify-between transition hover:scale-105 hover:shadow-2xl;
+  @apply min-w-[260px] max-w-[260px] h-[260px] bg-gray-50/90 backdrop-blur-md border border-gray-200 rounded-2xl shadow-md shadow-gray-200 p-5 flex flex-col justify-between transition-all duration-300 hover:scale-105 hover:shadow-lg;
 }
 
 /* Date Text */
@@ -144,10 +73,10 @@
 
 /* Entry Text */
 .entry-text {
-  @apply text-gray-800 text-sm leading-relaxed whitespace-pre-wrap overflow-hidden;
+  @apply text-gray-600 text-sm leading-relaxed whitespace-pre-wrap overflow-hidden;
 }
 
 /* Type Label */
 .entry-type-label {
-  @apply text-xs mt-4 bg-green-100 text-green-800 px-3 py-1 rounded-full self-start capitalize shadow-sm;
+  @apply text-xs mt-4 bg-gray-100 text-gray-600 px-3 py-1 rounded-full self-start capitalize shadow-sm;
 }

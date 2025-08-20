@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const Schedule = require('../models/Schedule');
 
-// Get schedule for a specific date
+
 router.get('/:date', async (req, res) => {
   const { date } = req.params;
-  const userId = 'user123'; // Replace with auth user ID in future
+  const userId = 'user123'; 
 
   try {
     const schedule = await Schedule.findOne({ userId, date });

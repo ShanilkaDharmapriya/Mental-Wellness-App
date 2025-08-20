@@ -61,7 +61,7 @@ const Register = () => {
         navigate('/dashboard');
       }
     } catch (err) {
-      setError(err.response?.data?.error || 'Registration failed');
+      setError(err.response?.data?.error || 'Registration failed. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -71,6 +71,7 @@ const Register = () => {
     <div className="auth-page">
       <form className="auth-form" onSubmit={handleSubmit}>
         <h2 className="auth-heading">✨ Create Account</h2>
+        
         {error && <p className="auth-error">{error}</p>}
         
         <input
@@ -80,20 +81,20 @@ const Register = () => {
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent"
+          className="focus:ring-2 focus:ring-green-300"
         />
         
         <input
           type="email"
           name="email"
-          placeholder="Email"
+          placeholder="Email Address"
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent"
+          className="focus:ring-2 focus:ring-green-300"
         />
         
-        <div className="relative w-full">
+        <div className="relative">
           <input
             type={showPassword ? "text" : "password"}
             name="password"
@@ -101,12 +102,12 @@ const Register = () => {
             value={formData.password}
             onChange={handleChange}
             required
-            className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent"
+            className="focus:ring-2 focus:ring-green-300"
           />
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
           >
             {showPassword ? "👁️" : "👁️‍🗨️"}
           </button>
@@ -119,14 +120,14 @@ const Register = () => {
           value={formData.confirmPassword}
           onChange={handleChange}
           required
-          className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent"
+          className="focus:ring-2 focus:ring-green-300"
         />
         
         <select
           name="role"
           value={formData.role}
           onChange={handleChange}
-          className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent"
+          className="focus:ring-2 focus:ring-green-300"
         >
           <option value="user">User</option>
           <option value="admin">Admin</option>
@@ -135,17 +136,15 @@ const Register = () => {
         <button
           type="submit"
           disabled={loading}
-          className={`w-full p-2 text-white rounded-lg ${
-            loading ? 'bg-sky-400 cursor-not-allowed' : 'bg-sky-500 hover:bg-sky-600'
-          }`}
+          className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 mt-6 disabled:bg-green-400 disabled:cursor-not-allowed disabled:hover:scale-100"
         >
-          {loading ? 'Creating Account...' : 'Register'}
+          {loading ? 'Creating Account...' : 'Create Account'}
         </button>
         
-        <p className="text-center text-gray-600 mt-4">
+        <p className="text-center text-gray-600 mt-6">
           Already have an account?{' '}
-          <Link to="/login" className="text-sky-500 hover:text-sky-600">
-            Login here
+          <Link to="/login" className="text-green-600 hover:text-green-700 font-medium transition-colors duration-300">
+            Sign in here
           </Link>
         </p>
       </form>

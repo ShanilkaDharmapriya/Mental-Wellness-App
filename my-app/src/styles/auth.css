@@ -2,27 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Auth Page Container */
 .auth-page {
-  @apply min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-blue-50;
+  @apply min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-gray-50 via-blue-50 to-white;
 }
 
+/* Auth Form Container */
 .auth-form {
-  @apply bg-white p-8 rounded-2xl shadow-md w-full max-w-sm flex flex-col gap-4 border border-gray-200;
+  @apply w-full max-w-md bg-white/80 backdrop-blur-lg rounded-3xl shadow-md shadow-gray-200 p-8 md:p-10 border border-gray-200 transition-all duration-300 hover:shadow-lg;
 }
 
+/* Form Heading */
 .auth-heading {
-  @apply text-2xl font-semibold text-center text-green-700 mb-2;
+  @apply text-3xl font-bold text-gray-800 text-center mb-8 tracking-wide;
 }
 
-.auth-error {
-  @apply text-sm text-red-500 text-center;
-}
-
+/* Form Inputs */
 .auth-form input,
-.auth-form select { /* 🔥 Added select */
-  @apply px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-300;
+.auth-form select {
+  @apply w-full p-3 rounded-xl bg-white/60 border border-gray-200 text-gray-700 placeholder-gray-500 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-green-300 transition-all duration-300 mb-4;
 }
 
-.auth-form button {
-  @apply bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition;
+/* Password Input Container */
+.auth-form .relative {
+  @apply mb-4;
+}
+
+/* Password Toggle Button */
+.auth-form .relative button {
+  @apply absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 transition-colors duration-300;
+}
+
+/* Submit Button */
+.auth-form button[type="submit"] {
+  @apply w-full bg-green-400 hover:bg-green-500 text-white font-semibold px-6 py-3 rounded-xl shadow-md shadow-gray-200 transition-all duration-300 hover:shadow-lg hover:scale-105 mt-6;
+}
+
+/* Error Message */
+.auth-error {
+  @apply text-red-600 bg-red-50/80 backdrop-blur-sm rounded-xl p-3 border border-red-100 mb-4 text-sm;
+}
+
+/* Link Text */
+.auth-form p {
+  @apply text-center text-gray-700 mt-6;
+}
+
+.auth-form a {
+  @apply text-green-600 hover:text-green-700 font-medium transition-colors duration-300;
+}
+
+/* Loading State */
+.auth-form button[type="submit"]:disabled {
+  @apply bg-green-300 cursor-not-allowed hover:scale-100 hover:shadow-md;
 }
