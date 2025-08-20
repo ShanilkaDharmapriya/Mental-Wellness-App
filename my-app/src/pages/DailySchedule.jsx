@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../styles/dailyschedule.css';
 import dayjs from 'dayjs';
 import Layout from '../components/Layout';
@@ -76,15 +76,15 @@ const DailySchedule = () => {
         </div>
 
         <p className="progress-text">
-          You completed <strong>{completedCount}</strong> / {totalTasks} routines on {dayjs(selectedDate).format('DD MMM YYYY')} 💪
+          You completed <strong>{completedCount}</strong> / {totalTasks} routines on {dayjs(selectedDate).format('DD MMM YYYY')} 
         </p>
 
         {Object.entries(dailyRoutines).map(([section, tasks]) => (
           <div key={section} className="routine-section">
             <h3 className="routine-title">
-              {section === 'morning' && '🌅 Morning Routine'}
-              {section === 'productivity' && '🚀 Productivity Goals'}
-              {section === 'evening' && '🌙 Evening Wind-Down'}
+              {section === 'morning' && ' Morning Routine'}
+              {section === 'productivity' && ' Productivity Goals'}
+              {section === 'evening' && ' Evening Wind-Down'}
             </h3>
             <ul className="routine-list">
               {tasks.map((task, index) => (

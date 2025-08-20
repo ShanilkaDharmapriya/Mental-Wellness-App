@@ -48,7 +48,7 @@ const SupportWall = () => {
     <Layout>
       <div className="wall-page">
         <div className="wall-form bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-          <h2 className="wall-heading text-2xl font-bold text-gray-800 mb-4">🌍 Share Your Feelings or Ask for Support</h2>
+          <h2 className="wall-heading text-2xl font-bold text-gray-800 mb-4">Share Your Feelings or Ask for Support</h2>
           <form onSubmit={handlePost} className="wall-post-form">
             <textarea
               rows={4}
@@ -68,7 +68,7 @@ const SupportWall = () => {
         </div>
 
         <div className="wall-feed mt-8">
-          <h3 className="wall-subheading text-xl font-semibold text-gray-800 mb-6">🫶 Community Positivity Wall</h3>
+          <h3 className="wall-subheading text-xl font-semibold text-gray-800 mb-6">Community Positivity Wall</h3>
           {posts.map((post) => (
             <div key={post._id} className="wall-card bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 mb-6">
               <div className="wall-header flex justify-between items-center mb-4">

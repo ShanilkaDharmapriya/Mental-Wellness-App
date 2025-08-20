@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Login from './pages/LoginPage';
 import Register from './pages/RegisterPage';
 import JournalPage from './pages/JournalPage';
@@ -22,74 +22,110 @@ import './styles/feed.css';
 import './styles/dailyschedule.css';
 import './styles/dashboard.css';
 
-function App() {
-  return (
-    <Router>
-      <div className="app-layout min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-grow">
-          <Routes>
-            {/* Public Routes */}
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+function AppShell() {
+  const location = useLocation();
 
-            {/* Protected Routes (User Only) */}
-            <Route path="/dashboard" element={
+  // Paths where we HIDE header/footer
+  const isAuthPage = location.pathname === '/login' || location.pathname === '/register';
+
+  return (
+    <div className="app-layout min-h-screen flex flex-col">
+      {!isAuthPage && <Header />}
+      <main className="flex-grow">
+        <Routes>
+          {/* Public (no header/footer) */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+
+          {/* User routes */}
+          <Route
+            path="/dashboard"
+            element={
               <ProtectedRoute allowedRoles={['user']}>
                 <UserDashboard />
               </ProtectedRoute>
-            } />
-            <Route path="/journal" element={
+            }
+          />
+          <Route
+            path="/journal"
+            element={
               <ProtectedRoute allowedRoles={['user']}>
                 <JournalPage />
               </ProtectedRoute>
-            } />
-            <Route path="/uplift" element={
+            }
+          />
+          <Route
+            path="/uplift"
+            element={
               <ProtectedRoute allowedRoles={['user']}>
                 <UpliftMe />
               </ProtectedRoute>
-            } />
-            <Route path="/Feed" element={
+            }
+          />
+          <Route
+            path="/Feed"
+            element={
               <ProtectedRoute allowedRoles={['user']}>
                 <SupportWall />
               </ProtectedRoute>
-            } />
-            <Route path="/DailySchedule" element={
+            }
+          />
+          <Route
+            path="/DailySchedule"
+            element={
               <ProtectedRoute allowedRoles={['user']}>
                 <DailySchedule />
               </ProtectedRoute>
-            } />
+            }
+          />
 
-            {/* Protected Admin Routes */}
-            <Route path="/admin" element={
+          {/* Admin routes */}
+          <Route
+            path="/admin"
+            element={
               <ProtectedRoute allowedRoles={['admin']}>
                 <AdminDashboard />
               </ProtectedRoute>
-            } />
-            <Route path="/admin/users" element={
+            }
+          />
+          <Route
+            path="/admin/users"
+            element={
               <ProtectedRoute allowedRoles={['admin']}>
                 <AdminUsers />
               </ProtectedRoute>
-            } />
-            <Route path="/admin/activity" element={
+            }
+          />
+          <Route
+            path="/admin/activity"
+            element={
               <ProtectedRoute allowedRoles={['admin']}>
                 <AdminActivity />
               </ProtectedRoute>
-            } />
-            <Route path="/admin/moderation" element={
+            }
+          />
+          <Route
+            path="/admin/moderation"
+            element={
               <ProtectedRoute allowedRoles={['admin']}>
                 <AdminModeration />
               </ProtectedRoute>
-            } />
+            }
+          />
 
-            {/* Fallback */}
-            <Route path="*" element={<Login />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+          {/* Fallback → redirect to /login (so header/footer stay hidden) */}
+          <Route path="*" element={<Navigate to="/login" replace />} />
+        </Routes>
+      </main>
+      {!isAuthPage && <Footer />}
+    </div>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <Router>
+      <AppShell />
+    </Router>
+  );
+}

@@ -24,7 +24,7 @@ router.get('/user', authMiddleware(), async (req, res) => {
     });
 
     res.json({
-      userName: 'Friend', // Replace with real user later
+      userName: 'Friend', 
       completedToday: completedTasks,
       totalTasks,
       communityPostsToday,
